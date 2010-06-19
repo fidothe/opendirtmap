@@ -1,4 +1,7 @@
-%p
+- if @geotagged_photos.size > 0
   %ul
     - list_of(@geotagged_photos) do |photo|
-      = photo.inspect
+      %p= photo.inspect
+      %p= link_to("Add data", tag_path(photo.id))
+- unless @geotagged_photos.size > 0
+  %p You need to #{link_to "Authorise us on Flickr", authorize_path}
