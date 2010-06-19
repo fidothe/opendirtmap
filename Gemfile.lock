@@ -12,6 +12,10 @@ dependencies:
     group: 
     - :development
     version: ">= 0"
+  heroku: 
+    group: 
+    - :development
+    version: ">= 0"
   flickraw: 
     group: 
     - :default
@@ -59,12 +63,22 @@ specs:
     version: 3.0.0.beta4
 - bundler: 
     version: 0.9.26
+- configuration: 
+    version: 1.1.0
 - json: 
     version: 1.4.3
 - flickraw: 
     version: 0.8.2
 - haml: 
     version: 3.0.12
+- json_pure: 
+    version: 1.4.3
+- launchy: 
+    version: 0.3.5
+- rest-client: 
+    version: 1.4.2
+- heroku: 
+    version: 1.9.10
 - thor: 
     version: 0.13.6
 - railties: 
@@ -73,7 +87,7 @@ specs:
     version: 3.0.0.beta4
 - unicorn: 
     version: 1.0.0
-hash: 08ac3dbce4c6df042137651693eb169ae532fcef
+hash: 2b575da92835b10b8a1130a04ba5bb10ff266e02
 sources: 
 - Rubygems: 
     uri: http://rubygems.org
