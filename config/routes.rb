@@ -2,8 +2,8 @@ Opendirtmap::Application.routes.draw do |map|
   root :to => "root#index"
   
   resources :tags
-  get  'authorize(.:format)', :to => 'flickr#show'
-  post 'authorize(.:format)', :to => 'flickr#create'
+  get 'authorize(.:format)', :to => 'flickr#show'
+  get 'authorized(.:format)', :to => 'flickr#create'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

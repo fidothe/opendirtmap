@@ -1,0 +1,15 @@
+%p #{@photo.inspect}
+%div
+  - form_tag(tag_path(@photo.id), :method => :put) do
+    %p
+      = label_tag :ph
+      = text_field_tag :ph
+    %p
+      = label_tag :texture
+      = text_field_tag :texture
+    %p
+      = label_tag :colour
+      = text_field_tag :colour
+    %p
+      = submit_tag "Tag me!"
+      
