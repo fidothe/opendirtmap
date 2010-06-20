@@ -1,4 +1,4 @@
-%p #{@photo.inspect}
+%p= image_tag("http://farm#{ @photo.farm }.static.flickr.com/#{ @photo.server }/#{ @photo.id }_#{ @photo.secret }.jpg")
 %div
   - form_tag(tag_path(@photo.id), :method => :put) do
     %p
@@ -13,3 +13,4 @@
     %p
       = submit_tag "Tag me!"
       
+%p= @photo.inspect
