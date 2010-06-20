@@ -141,6 +141,10 @@ p.thumbnail {
   margin-right: 5px;
 }
 
+p.vspace {
+  margin-top: 5px;
+}
+
 /*
 div#heroku_tookbar {
   display: none !important;

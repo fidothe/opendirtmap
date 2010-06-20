@@ -7,7 +7,8 @@
     %p.thumbnail
       = link_to(image_tag("http://farm#{ photo.farm }.static.flickr.com/#{ photo.server }/#{ photo.id }_#{ photo.secret }_s.jpg"), tag_path(photo.id))
 - unless authorized_user?
-  %p You need to #{link_to "Authorise us on Flickr", authorize_path}
+  %h2 Add your own photos?
+  %p.vspace To add your own photos, first #{link_to "link your Flickr account", @auth_url}.
 
 :javascript
   var cloudmade = new CM.Tiles.CloudMade.Web({key: '#{ENV["CLOUDMADE_KEY"]}'});
