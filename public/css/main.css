@@ -95,9 +95,23 @@ p {
   margin-bottom: 18px;
 }
 
-div.photo {
+div#map {
   float: left;
   width: 500px;
+  height: 500px;
+  margin-right: 10px;
+  border: 1px solid #eee;
+}
+
+div#map_pin {
+  float: left;
+  width: 250px;
+  height: 250px;
+}
+
+div.photo {
+  float: left;
+  /*width: 500px;*/
   margin: 0px 16px 16px 0px;
 }
 
@@ -106,9 +120,25 @@ div.photometa {
   width: 320px;
 }
 
+div.form {
+  clear: both;
+}
+
+label {
+  display: block;
+  float: left;
+  width: 60px;
+  vertical-align: baseline;
+}
+
+input {
+  border: 1px solid #ccc;
+  vertical-align: baseline;
+}
+
 p.thumbnail {
   float: left;
-  margin: 5px;
+  margin-right: 5px;
 }
 
 /*

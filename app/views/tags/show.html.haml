@@ -1,16 +1,29 @@
-%p= image_tag("http://farm#{ @photo.farm }.static.flickr.com/#{ @photo.server }/#{ @photo.id }_#{ @photo.secret }.jpg")
-%div
+.photo= image_tag("http://farm#{ @photo.farm }.static.flickr.com/#{ @photo.server }/#{ @photo.id }_#{ @photo.secret }.jpg")
+
+#map_pin
+
+%div.form
   - form_tag(tag_path(@photo.id), :method => :put) do
     %p
-      = label_tag :ph
+      = label_tag :ph, "pH:"
       = text_field_tag :ph
     %p
-      = label_tag :texture
+      = label_tag :texture, "Texture:"
       = text_field_tag :texture
     %p
-      = label_tag :colour
+      = label_tag :colour, "Colour:"
       = text_field_tag :colour
     %p
       = submit_tag "Tag me!"
       
-%p= @photo.inspect
+:javascript
+  var cloudmade = new CM.Tiles.CloudMade.Web({key: '#{ENV["CLOUDMADE_KEY"]}'});
+  var map = new CM.Map('map_pin', cloudmade);
+
+  var myMarkerLatLng = new CM.LatLng(#{ @photo.location.latitude }, #{ @photo.location.longitude });
+  var myMarker = new CM.Marker(myMarkerLatLng, {
+    title: "#{ @photo.title }"
+  });
+      
+  map.setCenter(myMarkerLatLng, 14);
+  map.addOverlay(myMarker);
