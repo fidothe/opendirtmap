@@ -26,7 +26,7 @@ body {
 }
 
 h1 {
-  font: normal 32px Helvetica Arial sans-serif;
+  font: normal 32px Helvetica, Arial, sans-serif;
 }
 
 h1.dim {
@@ -34,7 +34,7 @@ h1.dim {
 }
 
 h2 {
-  font: normal 22px Helvetica Arial sans-serif;
+  font: normal 22px Helvetica, Arial, sans-serif;
 }
 
 ol, ul {
@@ -87,6 +87,7 @@ div#content {
 }
 
 div#footer {
+  clear: both;
   margin: 16px;
 }
 
@@ -103,6 +104,11 @@ div.photo {
 div.photometa {
   float: left;
   width: 320px;
+}
+
+p.thumbnail {
+  float: left;
+  margin: 5px;
 }
 
 /*

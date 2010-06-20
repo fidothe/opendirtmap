@@ -1,7 +1,6 @@
 - if @geotagged_photos.size > 0
-  %ul
-    - list_of(@geotagged_photos) do |photo|
-      %p
-        = link_to(image_tag("http://farm#{ photo.farm }.static.flickr.com/#{ photo.server }/#{ photo.id }_#{ photo.secret }_s.jpg"), tag_path(photo.id))
+  - @geotagged_photos.each do |photo|
+    %p.thumbnail
+      = link_to(image_tag("http://farm#{ photo.farm }.static.flickr.com/#{ photo.server }/#{ photo.id }_#{ photo.secret }_s.jpg"), tag_path(photo.id))
 - unless @geotagged_photos.size > 0
   %p You need to #{link_to "Authorise us on Flickr", authorize_path}
