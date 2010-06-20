@@ -8,9 +8,9 @@ class TagsController < ApplicationController
   def update
     tags = []
     tags << "soil:pH=%1.2f" % params[:ph] if params[:ph]
-    tags << "soil:texture=#{URI.escape(params[:texture])}" if params[:texture]
-    tags << "soil:colour=#{URI.escape(params[:colour])}" if params[:colour]
-    flickr.photos.setTags :photo_id => params[:id], :tags => tags.join(" "), :auth => session[:flickr_auth_token]
+    tags << "soil:texture=#{params[:texture]}" if params[:texture]
+    tags << "soil:colour=#{params[:colour]}" if params[:colour]
+    flickr.photos.setTags :photo_id => params[:id], :tags => tags.join(", "), :auth => session[:flickr_auth_token]
     redirect_to tag_path(params[:id])
   end
   
