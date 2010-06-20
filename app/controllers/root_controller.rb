@@ -4,14 +4,14 @@ class RootController < ApplicationController
   def index
     unless authorized_user?
       @geotagged_photos = []
-
+      
       frob = flickr.auth.getFrob
       @auth_url = FlickRaw.auth_url :frob => frob, :perms => 'write'
     else
-      @geotagged_photos = flickr.photos.search(:user_id => session[:flickr_nsid], :has_geo => 'true', :extras => 'tags', :auth => session[:flickr_auth_token]).reject { |p| !p.tags.index("opendirtmap:tagged").nil? }.take(10)
-      @dirt_tagged_photos = flickr.photos.search :user_id => session[:flickr_nsid], :tags => "opendirtmap:tagged", :per_page => 10, :auth => session[:flickr_auth_token]
+      raw_geotagged_photos = flickr.photos.search(:user_id => session[:flickr_nsid], :has_geo => 'true', :extras => 'tags', :auth => session[:flickr_auth_token])
+      @geotagged_photos = raw_geotagged_photos.reject { |p| !p.tags.index("opendirtmaptagged").nil? }.take(10)
+      @dirt_tagged_photos = raw_geotagged_photos.reject { |p| p.tags.index("opendirtmaptagged").nil? }.take(10)
     end
-
   end
   
   def overlay
