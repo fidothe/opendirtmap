@@ -6,7 +6,6 @@
   - @geotagged_photos.each do |photo|
     %p.thumbnail
       = link_to(image_tag("http://farm#{ photo.farm }.static.flickr.com/#{ photo.server }/#{ photo.id }_#{ photo.secret }_s.jpg"), tag_path(photo.id))
-  %p.vspace= link_to("Logout", logout_path) 
   
 - unless authorized_user?
   %h2 Add your own photos?
