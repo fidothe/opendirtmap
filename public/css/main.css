@@ -27,6 +27,7 @@ body {
 
 h1 {
   font: normal 32px Helvetica, Arial, sans-serif;
+  float: left;
 }
 
 h1.dim {
@@ -76,6 +77,9 @@ table {
 
 div#header {
   margin: 8px 16px;
+  overflow: hidden;
+	width: 836px;
+	height: 36px;
 }
 
 div#sidebar {
@@ -84,6 +88,7 @@ div#sidebar {
 div#content {
   margin: 16px;
   width: 836px;
+  clear: both;
 }
 
 div#footer {
@@ -143,6 +148,13 @@ p.thumbnail {
 
 p.vspace {
   margin-top: 5px;
+}
+
+p.logout {
+  padding-top: 19px;
+  vertical-align: bottom;
+  float: right;
+  clear: after;
 }
 
 /*
