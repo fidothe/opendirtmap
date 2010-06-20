@@ -13,4 +13,9 @@
 :javascript
   var cloudmade = new CM.Tiles.CloudMade.Web({key: '#{ENV["CLOUDMADE_KEY"]}'});
   var map = new CM.Map('map', cloudmade);
-  map.setCenter(new CM.LatLng(50, 30), 5);
+  var dirt_kml = new CM.GeoXml('#{overlay_url(:format => :kml)}');
+  
+  CM.Event.addListener(dirt_kml, 'load', function() {
+  map.zoomToBounds(dirt_kml.getDefaultBounds());
+  map.addOverlay(dirt_kml);
+  });
