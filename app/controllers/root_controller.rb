@@ -8,7 +8,7 @@ class RootController < ApplicationController
       frob = flickr.auth.getFrob
       @auth_url = FlickRaw.auth_url :frob => frob, :perms => 'write'
     else
-      @geotagged_photos = flickr.photos.search :user_id => session[:flickr_nsid], :tags => '-opendirtmap:tagged', :has_geo => 'true', :per_page => 10, :auth => session[:flickr_auth_token]
+      @geotagged_photos = flickr.photos.search(:user_id => session[:flickr_nsid], :has_geo => 'true', :extras => 'tags', :auth => session[:flickr_auth_token]).reject { |p| !p.tags.index("opendirtmap:tagged").nil? }.take(10)
       @dirt_tagged_photos = flickr.photos.search :user_id => session[:flickr_nsid], :tags => "opendirtmap:tagged", :per_page => 10, :auth => session[:flickr_auth_token]
     end
 

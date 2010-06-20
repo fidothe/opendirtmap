@@ -2,10 +2,14 @@
 
 - if authorized_user?
   %h2 Choose a photo to tag
-
+  
   - @geotagged_photos.each do |photo|
     %p.thumbnail
       = link_to(image_tag("http://farm#{ photo.farm }.static.flickr.com/#{ photo.server }/#{ photo.id }_#{ photo.secret }_s.jpg"), tag_path(photo.id))
+  %h2 Your tagged samples
+  - @dirt_tagged_photos.each do |photo|
+    %p.thumbnail
+      = image_tag("http://farm#{ photo.farm }.static.flickr.com/#{ photo.server }/#{ photo.id }_#{ photo.secret }_s.jpg")
   %p.vspace= link_to("Logout", logout_path) 
   
 - unless authorized_user?
