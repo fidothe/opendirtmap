@@ -6,7 +6,7 @@ class TagsController < ApplicationController
   end
   
   def update
-    tags = []
+    tags = ['opendirtmap:tagged']
     tags << "soil:pH=%1.2f" % params[:ph] if params[:ph]
     tags << "soil:texture=#{params[:texture]}" if params[:texture]
     tags << "soil:colour=#{params[:colour]}" if params[:colour]

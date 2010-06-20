@@ -8,13 +8,14 @@ class RootController < ApplicationController
       frob = flickr.auth.getFrob
       @auth_url = FlickRaw.auth_url :frob => frob, :perms => 'write'
     else
-      @geotagged_photos = flickr.photos.search :user_id => session[:flickr_nsid], :has_geo => 'true', :per_page => 10, :auth => session[:flickr_auth_token]
+      @geotagged_photos = flickr.photos.search :user_id => session[:flickr_nsid], :tags => '-opendirtmap:tagged', :has_geo => 'true', :per_page => 10, :auth => session[:flickr_auth_token]
+      @dirt_tagged_photos = flickr.photos.search :user_id => session[:flickr_nsid], :tags => "opendirtmap:tagged", :per_page => 10, :auth => session[:flickr_auth_token]
     end
 
   end
   
   def overlay
-    @dirt_tagged_photos = flickr.photos.search :machine_tags => "soil:pH=", :extras => "geo,machine_tags,owner_name,path_alias", :per_page => 500, :auth => session[:flickr_auth_token]
+    @dirt_tagged_photos = flickr.photos.search :machine_tags => "opendirtmap:tagged", :extras => "geo,machine_tags,owner_name,path_alias", :per_page => 500, :auth => session[:flickr_auth_token]
   end
 
 end
