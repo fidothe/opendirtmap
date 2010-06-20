@@ -1,7 +1,8 @@
 class FlickrController < ApplicationController
-  def show
-    frob = flickr.auth.getFrob
-    @auth_url = FlickRaw.auth_url :frob => frob, :perms => 'write'
+  def logout
+    session[:flickr_auth_token] = nil
+    session[:flickr_nsid] = nil
+    redirect_to root_path
   end
   
   def create

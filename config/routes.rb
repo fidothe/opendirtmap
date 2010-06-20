@@ -2,7 +2,7 @@ Opendirtmap::Application.routes.draw do |map|
   root :to => "root#index"
   
   resources :tags
-  get 'authorize(.:format)', :to => 'flickr#show'
+  get 'logout(.:format)', :to => 'flickr#logout'
   get 'authorized(.:format)', :to => 'flickr#create'
   get 'overlay(.:format)', :to => 'root#overlay'
   # The priority is based upon order of creation:
