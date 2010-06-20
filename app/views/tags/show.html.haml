@@ -6,7 +6,8 @@
   - form_tag(tag_path(@photo.id), :method => :put) do
     %p
       = label_tag :ph, "pH:"
-      = text_field_tag :ph
+      %input(id="ph" name="ph" type="range" min="1.1" max="9" step="0.1" value="7.5")
+      %span.range-value 7.5
     %p
       = label_tag :texture, "Texture:"
       = text_field_tag :texture
@@ -27,3 +28,5 @@
       
   map.setCenter(myMarkerLatLng, 14);
   map.addOverlay(myMarker);
+
+  $('input#ph').change(function() { $('span.range-value').text($('input#ph').attr('value')) });
