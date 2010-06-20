@@ -1,6 +1,6 @@
-- if @geotagged_photos.size > 0
+- if authorized_user?
   - @geotagged_photos.each do |photo|
     %p.thumbnail
       = link_to(image_tag("http://farm#{ photo.farm }.static.flickr.com/#{ photo.server }/#{ photo.id }_#{ photo.secret }_s.jpg"), tag_path(photo.id))
-- unless @geotagged_photos.size > 0
+- unless authorized_user?
   %p You need to #{link_to "Authorise us on Flickr", authorize_path}
