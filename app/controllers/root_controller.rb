@@ -15,7 +15,7 @@ class RootController < ApplicationController
   end
   
   def overlay
-    @dirt_tagged_photos = flickr.photos.search :machine_tags => "opendirtmap:tagged", :extras => "geo,machine_tags,owner_name,path_alias", :per_page => 500, :auth => session[:flickr_auth_token]
+    @dirt_tagged_photos = flickr.photos.search :tags => "opendirtmap:tagged", :extras => "geo,machine_tags,owner_name,path_alias", :per_page => 500, :auth => session[:flickr_auth_token]
   end
 
 end
