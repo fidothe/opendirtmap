@@ -34,7 +34,7 @@ xml.kml :xmlns => "http://www.opengis.net/kml/2.2" do |kml|
     kml.Placemark do |pm|
       pm.name photo.title
       pm.description "added by #{photo.ownername}"
-      pm.styleUrl "ph_#{ph}"
+      pm.styleUrl "#ph_#{ph}"
       pm.Point do |point|
         point.coordinates "#{photo.longitude},#{photo.latitude},0"
       end
